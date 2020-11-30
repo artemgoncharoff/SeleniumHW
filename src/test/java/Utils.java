@@ -4,7 +4,7 @@ public class Utils {
     /*
         Используйте тот chromedriver, который подходит под вашу систему!
      */
-    //final static String CHROME_DRIVER_LOCATION = "chromedriver_mac";
-    final static String CHROME_DRIVER_LOCATION = "chromedriver_win";
+    final static String CHROME_DRIVER_LOCATION = "chromedriver_mac";
+//    final static String CHROME_DRIVER_LOCATION = "chromedriver_win";
     //final static String CHROME_DRIVER_LOCATION = "chromedriver_linux";
 }
