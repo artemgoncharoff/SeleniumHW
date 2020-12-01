@@ -1,9 +1,11 @@
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
+import org.testng.Assert;
 import org.testng.annotations.Test;
 
 import java.util.concurrent.TimeUnit;
+import java.util.logging.Logger;
 
 public class WebForm extends PageObject {
 
@@ -64,6 +66,18 @@ public class WebForm extends PageObject {
     @FindBy(xpath = "//*[@id=\"editor\"]/div/div/div[1]/div/div[1]/div/a")
     private WebElement openAdminPanelButtonFromCreatedPost;
 
+    @FindBy(xpath = "//*[@id=\"editor\"]/div/div/div[1]/div/div[2]/div[3]/div/div/div/div[2]/div/div[3]/h2")
+    private WebElement changeTime;
+
+    @FindBy(xpath = "//*[@id=\"editor\"]/div/div/div[1]/div/div[2]/div[3]/div/div/div/div[1]/div[1]/button")
+    private WebElement plan;
+
+    @FindBy(xpath = "//*[@id=\"editor\"]/div/div/div[1]/div/div[2]/div[3]/div/div/div/div[2]/div/div[3]/div/div[1]/fieldset[2]/div/div/input[2]")
+    private WebElement minutes;
+
+    @FindBy(xpath = "//*[@id=\"editor\"]/div/div/div[1]/div/div[2]/div[3]/div/div/div/div[2]/div/div[1]/text()[1]")
+    private WebElement planed;
+
     public void openMyPostsList() {
         allPostsButton.click();
         driver.manage().timeouts().implicitlyWait(20, TimeUnit.SECONDS);
@@ -96,7 +110,30 @@ public class WebForm extends PageObject {
         driver.manage().timeouts().implicitlyWait(20, TimeUnit.SECONDS);
         this.push_button_2.click();
     }
-  
+
+    public void addNewNodeWithDelay() {
+        this.add_button.click();
+        this.teaching_closing_button_1.click();
+
+        for (int i = 0; i <= 2; i++)
+            this.teaching_closing_button_2.click();
+
+        driver.get(Utils.BASE_URL + "wp-admin/post-new.php");
+
+        this.title_name.sendKeys(SIMPLE_TITLE);
+        driver.manage().timeouts().implicitlyWait(20, TimeUnit.SECONDS);
+        this.push_button_1.click();
+
+        driver.manage().timeouts().implicitlyWait(20, TimeUnit.SECONDS);
+        this.changeTime.click();
+
+        driver.manage().timeouts().implicitlyWait(20, TimeUnit.SECONDS);
+        this.minutes.sendKeys(String.valueOf(Integer.parseInt(this.minutes.getAttribute("value")) + 1));
+
+        driver.manage().timeouts().implicitlyWait(20, TimeUnit.SECONDS);
+        this.plan.click();
+    }
+
     public Integer getPostsCounterValue() {
         return Integer.valueOf(myPostsCounter.getText().substring(1, myPostsCounter.getText().length() - 1));
     }
