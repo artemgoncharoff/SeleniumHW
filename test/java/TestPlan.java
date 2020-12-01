@@ -21,6 +21,7 @@ public class TestPlan {
 
         webForm.openMyPostsList();
 
+        //add one post in case none were found
         if (webForm.getPostsCounterValue() == 0) {
             webForm.addNewNode();
             Thread.sleep(5000);
