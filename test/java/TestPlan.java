@@ -46,7 +46,7 @@ public class TestPlan {
         webform.addNewNode();
     }
 
-    @Test(testName = "test5")
+    @Test(testName = "Add new comment")
     public static void test5() {
         driver.get(Utils.BASE_URL);
         TestSession5 session = new TestSession5(driver);
