@@ -1,6 +1,7 @@
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
+import org.testng.annotations.Test;
 
 import java.util.concurrent.TimeUnit;
 
@@ -65,8 +66,9 @@ public class WebForm extends PageObject {
 
     public void openMyPostsList() {
         allPostsButton.click();
-
+        driver.manage().timeouts().implicitlyWait(20, TimeUnit.SECONDS);
         myPostsButton.click();
+        driver.manage().timeouts().implicitlyWait(20, TimeUnit.SECONDS);
     }
 
     public void clickOpenAdminPanelButtonFromCreatedPost() {
@@ -89,8 +91,9 @@ public class WebForm extends PageObject {
         driver.get(Utils.BASE_URL + "wp-admin/post-new.php");
 
         this.title_name.sendKeys(SIMPLE_TITLE);
-
+        driver.manage().timeouts().implicitlyWait(20, TimeUnit.SECONDS);
         this.push_button_1.click();
+        driver.manage().timeouts().implicitlyWait(20, TimeUnit.SECONDS);
         this.push_button_2.click();
     }
   
@@ -100,7 +103,9 @@ public class WebForm extends PageObject {
 
     public void pressRemoveButton() {
         this.firstPost.click();
+        driver.manage().timeouts().implicitlyWait(20, TimeUnit.SECONDS);
         this.deleteButton.click();
+        driver.manage().timeouts().implicitlyWait(20, TimeUnit.SECONDS);
     }
 
     public WebElement getDeletedNotification() {

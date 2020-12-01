@@ -3,8 +3,9 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import java.util.concurrent.TimeUnit;
-import java.util.function.Function;
 
 public class TestSession5 extends PageObject {
     public TestSession5(WebDriver driver) {
@@ -22,10 +23,10 @@ public class TestSession5 extends PageObject {
     String author = "Unauthorized author";
     String email = "author123@author123.com";
     String url = "author123.com";
-    String comment = "Test comment";
+    String comment;
 
     //xpath = "//span[contains(text(),'Добавить')]"
-    @FindBy(xpath = "//a[contains(text(), 'Комментариев')]")
+    @FindBy(xpath = "//a[contains(text(), 'омментари')]")
     WebElement refToComment;
     @FindBy(id = "comment")
     WebElement commentTextArea;
@@ -39,11 +40,15 @@ public class TestSession5 extends PageObject {
     WebElement sendCommentButton;
     @FindBy(xpath = "//span[@class='fn']")
     WebElement lastAuthor;
-    @FindBy(xpath = "//div[@class='comment-content entry-content']")
+    @FindBy(xpath = "//html/body/main/article/div[3]/div[1]/div[2]/div[last()]/article/div")
     WebElement lastNewComment;
 
     public void send_comment() {
         refToComment.click();
+        driver.manage().timeouts().implicitlyWait(20, TimeUnit.SECONDS);
+        SimpleDateFormat formatter= new SimpleDateFormat("yyyy-MM-dd 'at' HH:mm:ss z");
+        Date date = new Date(System.currentTimeMillis());
+        comment = "Test comment " + formatter.format(date);
         commentTextArea.sendKeys(comment);
         authorInput.sendKeys(author);
         emailInput.sendKeys(email);
