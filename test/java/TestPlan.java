@@ -71,6 +71,15 @@ public class TestPlan {
         session.deletePost();
     }
 
+    @Test(testName = "Add post with delay")
+    public static void createDelayPost() throws InterruptedException {
+        driver.get(Utils.BASE_URL + "wp-admin/about.php");
+        WebForm webform = new WebForm(driver);
+        webform.signIn();
+        webform.addNewNodeWithDelay();
+        Thread.sleep(5000);
+    }
+
     @Test(testName = "Add new comment")
     public static void sendComment() throws InterruptedException {
         driver.get(Utils.BASE_URL);
