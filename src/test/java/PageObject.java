@@ -7,5 +7,6 @@ public class PageObject {
     public PageObject(WebDriver driver){
         this.driver = driver;
         PageFactory.initElements(driver, this);
+
     }
 }
