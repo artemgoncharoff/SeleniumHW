@@ -14,8 +14,6 @@ public class WebForm extends PageObject {
     }
 
     private final String SIMPLE_TITLE = "SimpleTitle123";
-    public static final String LOGIN = "Ivan";
-    public static final String PASSWORD = "12345";
 
     @FindBy(xpath = "//*[@id=\"user_login\"]")
     private WebElement loginField;
@@ -49,15 +47,6 @@ public class WebForm extends PageObject {
 
     @FindBy(xpath = "//*[@id=\"message\"]/p")
     private WebElement deletedNotification;
-
-    @FindBy(xpath = "//*[@id=\"user_login\"]")
-    private WebElement loginField;
-
-    @FindBy(xpath = "//*[@id=\"user_pass\"]")
-    private WebElement passwordField;
-
-    @FindBy(xpath = "//*[@id=\"wp-submit\"]")
-    private WebElement signInButton;
 
     @FindBy(xpath = "/html/body/div[1]/div[2]/div[2]/div[1]/div[3]/form[1]/table/tbody/tr[1]")
     private WebElement firstPost;

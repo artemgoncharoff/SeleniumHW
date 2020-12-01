@@ -3,6 +3,8 @@ public class Utils {
     /*
         Используйте тот chromedriver, который подходит под вашу систему!
     */
+
+    //for Chrome v87
     final static String CHROME_DRIVER_LOCATION = "chromedriver";
 //    final static String CHROME_DRIVER_LOCATION = "chromedriver_win";
 //    final static String CHROME_DRIVER_LOCATION = "chromedriver_linux";
