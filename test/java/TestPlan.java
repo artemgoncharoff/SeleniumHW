@@ -1,9 +1,10 @@
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.testng.AssertJUnit;
-import org.testng.annotations.AfterSuite;
-import org.testng.annotations.BeforeSuite;
-import org.testng.annotations.Test;
+import org.testng.annotations.*;
+
+import static org.testng.Assert.assertEquals;
+import static org.testng.Assert.assertTrue;
 
 public class TestPlan {
     private static WebDriver driver = new ChromeDriver();
@@ -43,6 +44,14 @@ public class TestPlan {
         WebForm webform = new WebForm(driver);
         webform.signIn();
         webform.addNewNode();
+    }
+
+    @Test(testName = "test5")
+    public static void test5() {
+        driver.get(Utils.BASE_URL);
+        TestSession5 session = new TestSession5(driver);
+        session.send_comment();
+        assertTrue(session.verify_new_comment());
     }
 
     @AfterSuite
