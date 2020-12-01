@@ -5,7 +5,7 @@ public class Utils {
     */
 
     //for Chrome v87
+    //final static String CHROME_DRIVER_LOCATION = "chromedriver";
     final static String CHROME_DRIVER_LOCATION = "chromedriver";
-//    final static String CHROME_DRIVER_LOCATION = "chromedriver_win";
 //    final static String CHROME_DRIVER_LOCATION = "chromedriver_linux";
 }
