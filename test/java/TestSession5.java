@@ -48,8 +48,9 @@ public class TestSession5 extends PageObject {
         authorInput.sendKeys(author);
         emailInput.sendKeys(email);
         urlInput.sendKeys(url);
-        sendCommentButton.click();
-        driver.manage().timeouts().implicitlyWait(20, TimeUnit.SECONDS);
+        driver.manage().timeouts().implicitlyWait(50, TimeUnit.SECONDS);
+        sendCommentButton.submit();
+        driver.manage().timeouts().implicitlyWait(50, TimeUnit.SECONDS);
     }
 
     public boolean verify_new_comment(){
